@@ -19,10 +19,14 @@
 ifndef _cdbs_class_puredata
 _cdbs_class_puredata := 1
 
-include /usr/share/pd-pkg-tools/1/class/pd-common.mk
+PD_PKG_TOOLS_DEP_class_puredata ?= puredata
 
-CDBS_BUILD_DEPENDS_class_puredata ?= puredata
+CDBS_BUILD_DEPENDS_class_puredata ?= $(PD_PKG_TOOLS_DEP_class_puredata)
 CDBS_BUILD_DEPENDS += , $(CDBS_BUILD_DEPENDS_class_puredata)
 
+PD_DEPENDS_class_puredata ?= $(PD_PKG_TOOLS_DEP_class_puredata)
+PD_DEPENDS += , $(PD_DEPENDS_class_puredata)
+
+include /usr/share/pd-pkg-tools/1/class/pd-common.mk
 endif
 
