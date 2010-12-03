@@ -1,0 +1,5 @@
+pd-pkg-tools (0.1) UNRELEASED; urgency=low
+
+  * Initial release. (Closes: #XXXXXX)
+
+ -- IOhannes m zmoelnig (gpg-key at iem) <zmoelnig@iem.at>  Fri, 03 Dec 2010 11:23:57 +0100

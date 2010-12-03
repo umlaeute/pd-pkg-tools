@@ -1,0 +1,22 @@
+Source: pd-pkg-tools
+Section: devel
+Priority: optional
+Maintainer: Debian Multimedia Maintainers <pkg-multimedia-maintainers@lists.alioth.debian.org>
+Uploaders: IOhannes m zmoelnig (gpg-key at iem) <zmoelnig@iem.at>
+Build-Depends: cdbs, debhelper (>=7.0.1)
+Standards-Version: 3.9.1
+Vcs-Git: git://git.debian.org/pkg-multimedia/pd-pkg-tools
+Vcs-Browser: http://git.debian.org/?p=pkg-multimedia/pd-pkg-tools.git
+
+Package: pd-pkg-tools
+Architecture: all
+Depends: $(misc:Depends)
+Recommends: git-buildpackage, devscripts
+Description: Tools for building Debian Pd packages
+ This package contains useful tools for building and maintaining Debian packages
+ for Pure Data libraries.
+ It's targeted at the Debian Multimedia Maintainers Team, subsection Pure Data.
+ This package currently includes:
+    * CDBS classes for building packages for pd (and flavour puredata)
+
+
