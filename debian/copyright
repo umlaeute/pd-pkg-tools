@@ -1,23 +1,25 @@
-This is pd-pkg-tools, written and maintained by IOhannes m zmölnig
-<zmoelnig@iem.at>
-on Fri, 03 Dec 2010 11:23:57 +0100
+Format-Specification: http://svn.debian.org/wsvn/dep/web/deps/dep5.mdwn?rev=135
+Name: pd-pkg-tools
+Maintainer: IOhannes m zmölnig
 
-Copyright (C) 2010 IOhannes m zmölnig
+Files: ./README.cdbs,
+Copyright: 2010, IOhannes m zmölnig <zmoelnig@iem.at>
+License: GPL-2+
 
-  This program is free software; you can redistribute it and/or modify
-  it under the terms of the GNU General Public License as published by
-  the Free Software Foundation; either version 2 of the License, or
-  (at your option) any later version.
+Files: ./1/*
+Copyright: 2010, IOhannes m zmölnig <zmoelnig@iem.at>
+License: GPL-2+
 
-  This program is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  GNU General Public License for more details.
+Files: ./debian/*
+Copyright: 2010, IOhannes m zmölnig <zmoelnig@iem.at>
+License: GPL-2+
 
-  You should have received a copy of the GNU General Public License
-  along with this package; if not, write to the Free Software
-  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
-
-On Debian systems, the complete text of the GNU General
-Public License can be found in `/usr/share/common-licenses/GPL'.
+License: GPL-2+
+ This package is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+ .
+ On Debian systems, the complete text of the GNU General Public License
+ version 2 can be found in file "/usr/share/common-licenses/GPL-2".
 
