@@ -61,10 +61,10 @@ $(patsubst %,binary-predeb-IMPL/%,$(DEB_ALL_PACKAGES)) ::
 $(patsubst %,binary-strip-IMPL/%,$(DEB_ALL_PACKAGES)) :: 
 	$(if $(nostrip_package),,strip --remove-section=.comment --remove-section=.note --strip-unneeded $(shell find $(cdbs_curdestdir) -name "*.pd_linux") )
 
+# add pd/puredata/pd-myflavour to the dependencies of the resulting binaries
 $(patsubst %,install/%,$(DEB_ALL_PACKAGES)) :: install/%:
-	@echo 'Adding pd dependencies to debian/$(cdbs_curpkg).substvars'
-	@echo '$(call cdbs_expand_curvar,PD_DEPENDS,$(comma) )'    | -ne '$(cdbs_re_squash_extended_space); $(re_squash_commas_and_spaces); /\w/ and print "pd:Depends=$$_\n"'     >> debian/$(cdbs_curpkg).substvars
-
+	@echo 'Adding Pd dependencies to debian/$(cdbs_curpkg).substvars'
+	@echo '$(call cdbs_expand_curvar,PD_DEPENDS,$(comma) )'    | perl -0 -ne '$(cdbs_re_squash_extended_space); $(re_squash_commas_and_spaces); /\w/ and print "pd:Depends=$$_\n"'     >> debian/$(cdbs_curpkg).substvars
 
 #endif _cdbs_class_pd_common
 endif
