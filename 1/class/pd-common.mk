@@ -25,6 +25,9 @@ endif
 
 ifndef _cdbs_class_pd_common
 _cdbs_class_pd_common := 1
+CDBS_BUILD_DEPENDS_class_pd_common ?= pd-pkg-tools
+CDBS_BUILD_DEPENDS += , $(CDBS_BUILD_DEPENDS_class_pd_common)
+
 
 include $(_cdbs_class_path)/langcore.mk$(_cdbs_makefile_suffix)
 include $(_cdbs_rules_path)/buildcore.mk$(_cdbs_makefile_suffix)
