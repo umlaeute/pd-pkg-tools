@@ -10,7 +10,7 @@ Vcs-Browser: http://git.debian.org/?p=pkg-multimedia/pd-pkg-tools.git
 
 Package: pd-pkg-tools
 Architecture: all
-Depends: $(misc:Depends)
+Depends: ${misc:Depends}
 Recommends: git-buildpackage, devscripts
 Description: Tools for building Debian Pd packages
  This package contains useful tools for building and maintaining Debian packages
