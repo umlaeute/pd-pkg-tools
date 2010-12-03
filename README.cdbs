@@ -14,7 +14,12 @@ use the appropriate snippet, e.g.
 if you are using @cdbs@ in your debian/control.in Build-depends, the expansion
 of @cdbs@ will additionally include "pd", or "puredata" or the like.
 
-Currently you have to manually make sure that the Depends: in your
-debian/control points to the right flavour of Pd.
+You can use the ${cdbs:Depends} substvar for the resulting binary package to
+depend on the currect flavour of Pd.
+
+
+TODO
+----
+allow to depend on specific versions of pd/flavour
 
 
