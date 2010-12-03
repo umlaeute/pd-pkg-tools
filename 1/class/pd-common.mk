@@ -51,11 +51,15 @@ endif
 
 ## code not specific to other backends
 
+# pd externals have the uncommon extension .pd_linux, which prevents them from
+# being properly detected by dh_shlibdeps, so we do it manually
 $(patsubst %,binary-predeb-IMPL/%,$(DEB_ALL_PACKAGES)) ::
-	dpkg-shlibdeps $(shell find $(DEB_DESTDIR) -name "*.pd_linux") -Tdebian/$(cdbs_curpkg).substvars
+	dpkg-shlibdeps $(shell find $(cdbs_curdestdir) -name "*.pd_linux") -Tdebian/$(cdbs_curpkg).substvars
 
+# pd externals have the uncommon extension .pd_linux, which prevents them from
+# being properly detected by dh_strip, so we do it manually
 $(patsubst %,binary-strip-IMPL/%,$(DEB_ALL_PACKAGES)) :: 
-	$(if $(nostrip_package),,strip --remove-section=.comment --remove-section=.note --strip-unneeded $(shell find $(DEB_DESTDIR) -name "*.pd_linux") )
+	$(if $(nostrip_package),,strip --remove-section=.comment --remove-section=.note --strip-unneeded $(shell find $(cdbs_curdestdir) -name "*.pd_linux") )
 
 $(patsubst %,install/%,$(DEB_ALL_PACKAGES)) :: install/%:
 	@echo 'Adding pd dependencies to debian/$(cdbs_curpkg).substvars'
