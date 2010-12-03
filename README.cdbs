@@ -1,0 +1,20 @@
+CDBS classes for building Debian packages for Pure Data libraries
+=================================================================
+
+for building Pd-externals you only need to additionally include on of the
+provided CDBS makefile snippets in your debian/rules.
+
+For generic Pd libraries (regardless of Pd-flavour), use:
+ /usr/share/pd-pkg-tools/1/class/pd.mk
+
+If you need to pin your library to a specific flavour of Pd, 
+use the appropriate snippet, e.g.
+ /usr/share/pd-pkg-tools/1/class/puredata.mk
+
+if you are using @cdbs@ in your debian/control.in Build-depends, the expansion
+of @cdbs@ will additionally include "pd", or "puredata" or the like.
+
+Currently you have to manually make sure that the Depends: in your
+debian/control points to the right flavour of Pd.
+
+
