@@ -52,10 +52,15 @@ endif
 ## code not specific to other backends
 
 $(patsubst %,binary-predeb-IMPL/%,$(DEB_ALL_PACKAGES)) ::
-	dpkg-shlibdeps $(shell find $(DEB_DESTDIR) -name "*.pd_linux") -T$(CURDIR)/debian/$(cdbs_curpkg).substvars
+	dpkg-shlibdeps $(shell find $(DEB_DESTDIR) -name "*.pd_linux") -Tdebian/$(cdbs_curpkg).substvars
 
 $(patsubst %,binary-strip-IMPL/%,$(DEB_ALL_PACKAGES)) :: 
 	$(if $(nostrip_package),,strip --remove-section=.comment --remove-section=.note --strip-unneeded $(shell find $(DEB_DESTDIR) -name "*.pd_linux") )
+
+$(patsubst %,install/%,$(DEB_ALL_PACKAGES)) :: install/%:
+	@echo 'Adding pd dependencies to debian/$(cdbs_curpkg).substvars'
+	@echo '$(call cdbs_expand_curvar,PD_DEPENDS,$(comma) )'    | -ne '$(cdbs_re_squash_extended_space); $(re_squash_commas_and_spaces); /\w/ and print "pd:Depends=$$_\n"'     >> debian/$(cdbs_curpkg).substvars
+
 
 #endif _cdbs_class_pd_common
 endif
