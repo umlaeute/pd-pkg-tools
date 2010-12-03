@@ -19,10 +19,14 @@
 ifndef _cdbs_class_pd
 _cdbs_class_pd := 1
 
-include /usr/share/pd-pkg-tools/1/class/pd-common.mk
+PD_PKG_TOOLS_DEP_class_pd ?= pd
 
-CDBS_BUILD_DEPENDS_class_pd ?= pd
+CDBS_BUILD_DEPENDS_class_pd ?= $(PD_PKG_TOOLS_DEP_class_pd)
 CDBS_BUILD_DEPENDS += , $(CDBS_BUILD_DEPENDS_class_pd)
 
+PD_DEPENDS_class_pd ?= $(PD_PKG_TOOLS_DEP_class_pd)
+PD_DEPENDS += , $(PD_DEPENDS_class_pd)
+
+include /usr/share/pd-pkg-tools/1/class/pd-common.mk
 endif
 
