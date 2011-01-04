@@ -37,15 +37,6 @@ ifeq (,$(is_debug_package))
  nostrip_package = yes
 endif
 
-#be sure to include $(_cdbs_rules_path)/rules/debhelper.mk before
-ifdef _cdbs_rules_debhelper
-
-## put debhelper specific code in here
-
-# endif _cdbs_rules_debhelper
-endif
-
-
 ## code not specific to other backends
 
 # pd externals have the uncommon extension .pd_linux, which prevents them from
