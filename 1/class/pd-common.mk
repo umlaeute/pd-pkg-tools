@@ -34,8 +34,6 @@ ifneq (,$(filter nostrip,$(DEB_BUILD_OPTIONS)))
  cdbs_pd_common_nostrip_package = yes
 endif
 
-## code not specific to other backends
-
 # pd externals have the uncommon extension .pd_linux, which prevents them from
 # being properly detected by dh_shlibdeps, so we do it manually
 $(patsubst %,binary-predeb-IMPL/%,$(DEB_ALL_PACKAGES)) ::
