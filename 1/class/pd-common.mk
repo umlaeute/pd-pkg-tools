@@ -29,12 +29,12 @@ CDBS_BUILD_DEPENDS += , $(CDBS_BUILD_DEPENDS_class_pd_common)
 include $(_cdbs_class_path)/langcore.mk$(_cdbs_makefile_suffix)
 include $(_cdbs_rules_path)/buildcore.mk$(_cdbs_makefile_suffix)
 
-nostrip_package = 
+cdbs_pd_common_nostrip_package = 
 ifneq (,$(filter nostrip,$(DEB_BUILD_OPTIONS)))
- nostrip_package = yes
+ cdbs_pd_common_nostrip_package = yes
 endif
 ifeq (,$(is_debug_package))
- nostrip_package = yes
+ cdbs_pd_common_nostrip_package = yes
 endif
 
 ## code not specific to other backends
@@ -47,7 +47,7 @@ $(patsubst %,binary-predeb-IMPL/%,$(DEB_ALL_PACKAGES)) ::
 # pd externals have the uncommon extension .pd_linux, which prevents them from
 # being properly detected by dh_strip, so we do it manually
 $(patsubst %,binary-strip-IMPL/%,$(DEB_ALL_PACKAGES)) :: 
-	$(if $(nostrip_package),,strip --remove-section=.comment --remove-section=.note --strip-unneeded $(shell find $(cdbs_curdestdir) -name "*.pd_linux") )
+	$(if $(cdbs_pd_common_nostrip_package),,strip --remove-section=.comment --remove-section=.note --strip-unneeded $(shell find $(cdbs_curdestdir) -name "*.pd_linux") )
 
 # add pd/puredata/pd-myflavour to the dependencies of the resulting binaries
 #$(patsubst %,install/%,$(DEB_ALL_PACKAGES)) :: install/%:
