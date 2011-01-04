@@ -33,9 +33,6 @@ cdbs_pd_common_nostrip_package =
 ifneq (,$(filter nostrip,$(DEB_BUILD_OPTIONS)))
  cdbs_pd_common_nostrip_package = yes
 endif
-ifeq (,$(is_debug_package))
- cdbs_pd_common_nostrip_package = yes
-endif
 
 ## code not specific to other backends
 
